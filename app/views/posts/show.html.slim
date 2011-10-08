@@ -1,4 +1,16 @@
 h1 = @post.title
 = @post.content.html_safe
 
+- @post.comentarios.each do |comentario|
+  h3 = comentario.author
+  p = comentario.content
+  
+  
+= form_for @comentario do |f|
+  = f.text_field :author
+  = f.text_area :content
+  = f.submit
+
+
+
 = link_to 'Voltar', root_path

@@ -1,10 +1,14 @@
 Blog::Application.routes.draw do
 
+  get "comentarios/create"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   match '/posts/:id' => 'posts#show', :as => :post
+  
+  resources :comentarios
   
   root :to => "posts#index"
 
