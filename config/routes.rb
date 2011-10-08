@@ -4,6 +4,8 @@ Blog::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   
+  match '/posts/:id' => 'posts#show', :as => :post
+  
   root :to => "posts#index"
 
   # The priority is based upon order of creation:
